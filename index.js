@@ -21,6 +21,7 @@ const renderCart = () => {
     `;
     cartTableBody.appendChild(row)
   })
+  updateTotal()
 } 
 
 
@@ -38,14 +39,12 @@ const addProduct = (event) => {
     renderCart();
     form.reset(); //Limpiar formulario
   }
-  // updateTotal()
 }
 
-// const updateTotal = () => {
-//   const total = products.reduce((sum, product) => sum + (product.price * product.quantity).toFixed(2))
-//   console.log(total)
-//   cartTotal.textContent = total
-// }
+function updateTotal() {
+  const total = products.reduce((sum, product) => sum + product.price * product.quantity, 0);
+  cartTotal.textContent = total.toFixed(2);
+}
 
 // borrar producto
 
